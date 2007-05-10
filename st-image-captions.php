@@ -13,7 +13,7 @@ Features:
 */
 #CONFIGURE st-image-captions.js LOCATION
 $js_location = get_option('siteurl')."/wp-content/plugins/shiftthis-image-captions/";
-$js = "shiftthis-image-captions.js";
+$js = "st-image-captions.js";
 $javascript = $js_location.$js;
 function stic_js(){
 global $javascript;
