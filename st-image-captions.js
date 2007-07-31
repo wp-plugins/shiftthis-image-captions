@@ -1,29 +1,49 @@
 /* Javascript originally written by: Brett Chang of evercloud.com */
-/* Javascript altered to create one Div with a class of "caption" containing the image and the images alt-text displayed within a span for flexible styling abilities (plus it's a bit cleaner output and since an image is not tabular data, why would it be in a table?)*/
+/* Javascript altered to create one Div with a class of "caption" containing the image and the images alt-text displayed within a span for flexible styling abilities*/
+
+function st_getElementsByClass(searchClass,node,tag) {
+	var classElements = new Array();
+	if ( node == null )
+		node = document;
+	if ( tag == null )
+		tag = '*';
+	var els = node.getElementsByTagName(tag);
+	var elsLen = els.length;
+	var pattern = new RegExp("(^|\\s)"+searchClass+"(\\s|$)");
+	for (i = 0, j = 0; i < elsLen; i++) {
+		if ( pattern.test(els[i].className) ) {
+			classElements[j] = els[i];
+			j++;
+		}
+	}
+	return classElements;
+}
 
 var IMAGE_TRACKER = new Array();
 
 function addImgCaption(myImgElem)
 
 {
-
  var myParent = myImgElem.parentNode;
 
  var myParentParent = myImgElem.parentNode.parentNode;
 
  var myWrapperTable = null;
 
- var myNodeForAppend = myImgElem; function createDiv(myImgElem, myNodeForAppend)
+ var myNodeForAppend = myImgElem; 
+ 
+	function createDiv(myImgElem, myNodeForAppend)
 
  {
-
+	var myNodeForAppend = myImgElem; 
   var eDiv = document.createElement("div");
 
   var eBr = document.createElement("br");
   
   var eSpan = document.createElement("span");
 
-  var eCaption =  document.createTextNode (myImgElem.getAttribute('alt'));
+  //var eCaption =  document.createTextNode (myImgElem.getAttribute('alt'));
+  var eCaption =  document.createTextNode ("put yer code 'ere");
 
 //stylin'!
 
@@ -48,10 +68,12 @@ function addImgCaption(myImgElem)
   		 eSpan.appendChild(eCaption);
   }
   
-  	myNodeForAppend.removeAttribute("alt");
+  	myNodeForAppend.setAttribute("alt", "");
 	myNodeForAppend.removeAttribute("title");
     myNodeForAppend.removeAttribute("align");
-  
+  	myImgElem.setAttribute("alt", "");
+	myImgElem.removeAttribute("title");
+    myImgElem.removeAttribute("align");
 return eDiv;
 
  }
@@ -85,3 +107,11 @@ if(myParent.nodeName == 'A'){
  }
 
 }
+function st_image_captions(){
+	var myImages = st_getElementsByClass("captionimg");
+	for(var i=0;i<myImages.length;i++){	
+		addImgCaption(myImages[i]);
+	}
+}
+
+window.onload = st_image_captions;

@@ -4,13 +4,13 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal%4
 Tags: image, captions
 Requires at least: 2.0.2
 Tested up to: 2.1.3
-Stable tag: 1.1
+Stable tag: 1.2
 
 This plugin will create a caption under all Post & Page images using the image's alt text. 
 
 == Description ==
 
-This plugin will create a caption under all Post & Page images using the images's alt text. Javascript dynamically puts the image in a div with the alt text as the caption below. The images alt & title attributes are then removed for redundancy. Captions are not displayed if no alt text is present or if the alt text matches the image name (Wordpress’s default habit). It also dynamically switches the images align attribute to a float attribute on the div for proper web standards text wrapping. You can then style using the div's “caption” class and the containing span element.
+This plugin will create a caption under all Post & Page images using the images's alt text. Javascript dynamically puts the image in a div with the alt text as the caption below. The images title attribute is then removed for redundancy and the alt attribute is set to blank. Captions are not displayed if no alt text is present or if the alt text matches the image name (Wordpress’s default habit). It also dynamically switches the images align attribute to a float attribute on the div for proper web standards text wrapping. You can then style using the div's “caption” class and the containing span element.
 
 == Installation ==
 
