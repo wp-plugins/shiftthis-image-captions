@@ -42,8 +42,8 @@ function addImgCaption(myImgElem)
   
   var eSpan = document.createElement("span");
 
-  //var eCaption =  document.createTextNode (myImgElem.getAttribute('alt'));
-  var eCaption =  document.createTextNode ("put yer code 'ere");
+  var eCaption =  document.createTextNode (myImgElem.getAttribute('alt'));
+  //var eCaption =  document.createTextNode ("put yer code 'ere");
 
 //stylin'!
 
